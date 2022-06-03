@@ -7,18 +7,18 @@ app.use(cors())
 
 const wines= {
     'zinfandel':{
-        'typeWine': 'white',
+        'typeWine': 'red',
         'tanninsTaste': 'high',
         'priceDollar': '5.99',
         'foodPair':'chicken salad',
-        'otherName': 'Rose, Zinfendel'
+        'otherName': 'Red zinfendel, sweet wine, high level alcohol'
     },
     'champagne':{
         'typeWine': 'white',
         'tanninsTaste': 'low',
         'priceDollar': '9.99',
         'foodPair':'chicken salad',
-        'otherName': 'sparkling wine, prosecco, cava'
+        'otherName': 'sparkling wine, prosecco, cava, fancy drink'
     },
     'riesling':{
         'typeWine': 'white',
@@ -40,6 +40,27 @@ const wines= {
         'priceDollar': '8.99',
         'foodPair':'brunch',
         'otherName': 'Sweet white, Summer drink'
+    },
+    'merlot':{
+        'typeWine': 'red',
+        'tanninsTaste': 'mid',
+        'priceDollar': '8.99',
+        'foodPair':'brunch',
+        'otherName': 'Sweet red wine, party wine'
+    },
+    'cabernet sauvignon':{
+        'typeWine': 'red',
+        'tanninsTaste': 'high',
+        'priceDollar': '9.99',
+        'foodPair':'meat, heavy meals, complex meals',
+        'otherName': 'Flavor town, complex, the main ingredient in red blends'
+    },
+    'red blend':{
+        'typeWine': 'red',
+        'tanninsTaste': 'mid',
+        'priceDollar': '4.99',
+        'foodPair':'complex meals, meats, spicy foods',
+        'otherName': 'generic wine, wine for beginners'
     },
     'cheap horrible choice':{
         'typeWine': 'red',
