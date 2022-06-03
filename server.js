@@ -63,25 +63,25 @@ const wines= {
         'otherName': 'generic wine, wine for beginners'
     },
     'red box wine':{
-        'typeWine': 'red, white',
+        'typeWine': 'red',
         'tanninsTaste': 'mid',
         'priceDollar': '12.99',
         'foodPair':'spicy meals, frozen food meals',
-        'otherName': '3 liter wine, party wine, spacebag wine'
+        'otherName': '3 liter wine, event party wine, spacebag wine'
     },
-    'red box wine':{
-        'typeWine': 'red, white',
+    'white box wine':{
+        'typeWine': 'white',
         'tanninsTaste': 'mid',
         'priceDollar': '12.99',
-        'foodPair':'spicy meals, frozen food meals',
-        'otherName': '3 liter wine, party wine, spacebag wine'
+        'foodPair':'light meals like chicken, seafood, fancy party cheese',
+        'otherName': '3 liter wine, event party wine, spacebag wine'
     },
     'cheap horrible choice':{
         'typeWine': 'red',
         'tanninsTaste': 'mid',
         'priceDollar': '3.49',
         'foodPair':'pizza',
-        'otherName': '2 dollar wine, gift for people you wont ever see again'
+        'otherName': '2 dollar wine, gift for people you dislike'
     },
 }
 
