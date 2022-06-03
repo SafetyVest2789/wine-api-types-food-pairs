@@ -34,6 +34,13 @@ const wines= {
         'foodPair':'steak',
         'otherName': 'Red Blend, Best Choice'
     },
+    'mascato':{
+        'typeWine': 'white',
+        'tanninsTaste': 'low',
+        'priceDollar': '8.99',
+        'foodPair':'brunch',
+        'otherName': 'Sweet white, Summer drink'
+    },
     'cheap horrible choice':{
         'typeWine': 'red',
         'tanninsTaste': 'mid',
