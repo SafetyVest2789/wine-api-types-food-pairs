@@ -1,0 +1,51 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+  background-color: rgb(0, 200, 255);
+
+}
+/******************************************
+/* LAYOUT
+/*******************************************/
+header,footer {
+  height: 60px;
+  border: 2px solid black;
+  clear: both;
+}
+
+ul {
+  list-style: none;
+}
+section{
+  height: 300px;
+  width: 100%;
+  border: 2px solid black;
+  float: left;
+}
+
+
+
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
