@@ -53,7 +53,7 @@ const wines= {
         'tanninsTaste': 'high',
         'priceDollar': '9.99',
         'foodPair':'meat, heavy meals, complex meals',
-        'otherName': 'Flavor town, complex, the main ingredient in red blends'
+        'otherName': 'Flavor town, complex, main ingredient in red blends'
     },
     'red blend':{
         'typeWine': 'red',
@@ -62,12 +62,26 @@ const wines= {
         'foodPair':'complex meals, meats, spicy foods',
         'otherName': 'generic wine, wine for beginners'
     },
+    'red box wine':{
+        'typeWine': 'red, white',
+        'tanninsTaste': 'mid',
+        'priceDollar': '12.99',
+        'foodPair':'spicy meals, frozen food meals',
+        'otherName': '3 liter wine, party wine, spacebag wine'
+    },
+    'red box wine':{
+        'typeWine': 'red, white',
+        'tanninsTaste': 'mid',
+        'priceDollar': '12.99',
+        'foodPair':'spicy meals, frozen food meals',
+        'otherName': '3 liter wine, party wine, spacebag wine'
+    },
     'cheap horrible choice':{
         'typeWine': 'red',
         'tanninsTaste': 'mid',
-        'priceDollar': '2.99',
+        'priceDollar': '3.49',
         'foodPair':'pizza',
-        'otherName': '2 dollar wine, Spacebag wine'
+        'otherName': '2 dollar wine, gift for people you wont ever see again'
     },
 }
 

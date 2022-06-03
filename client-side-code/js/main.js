@@ -7,7 +7,7 @@ async function apiRequest(){
         const data = await response.json()
 
         console.log(data)
-        document.querySelector('h2').innerText = data.winesName
+        document.querySelector('h2').innerText = data.typeWine
     }catch(error){
         console.log(error)
     }
