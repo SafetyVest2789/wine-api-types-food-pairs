@@ -74,8 +74,15 @@ const wines= {
         'tanninsTaste': 'mid',
         'priceDollar': '12.99',
         'foodPair':'light meals like chicken, seafood, fancy party cheese',
-        'otherName': '3 liter wine, event party wine, spacebag wine'
+        'otherName': '3 liter wine, event party wine, spacebag wine, '
     },
+    // 'white box wine ':{
+    //     'typeWine': 'white',
+    //     'tanninsTaste': 'mid',
+    //     'priceDollar': '12.99',
+    //     'foodPair':'light meals like chicken, seafood, fancy party cheese',
+    //     'otherName': '3 liter wine, event party wine, spacebag wine, cheap pinot grigio'
+    // },
     'cheap horrible choice':{
         'typeWine': 'red',
         'tanninsTaste': 'mid',
