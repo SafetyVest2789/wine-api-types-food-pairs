@@ -11,13 +11,20 @@
   --ff-primary: 'Roboto', sans-serif;
   --ff-accent:'Playfair Display', serif; */
 
+  --padding-sm: clamp(1rem,    3%, 1.5rem);
+  --padding-md: clamp(1.5rem,  6%,   3rem);
+  --padding-lg: clamp(3rem,   12%,   6rem);
+
+  --layout-gap-sm: clamp(1rem,   3vmax, 1.5rem)
+  --layout-gap-md: clamp(1.5rem, 6vmax,   3rem);
+  --layout-gap-lg: clamp(3rem,   8vmax,   4rem);
+
 }
 
 
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
 }
 
@@ -131,7 +138,8 @@ img {
 }
 
 .mainInfo .grid {
-  grid-template-columns: 55% 45%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
   gap: 30px;
 }
 
@@ -151,10 +159,12 @@ img {
 
 /* Utilities*/
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
+  /* max-width: 1100px;
+  margin: 0 auto; */
   overflow: auto;
   padding: 0 40px;
+  width: min(100vw - 3rem, var(--container-max, 80ch) );
+  margin-inline: auto;
 }
 
 .card {
@@ -171,16 +181,16 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:100%
+  height:100%;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  /* grid-template-columns: 2fr 1fr; */
   gap: 20px;
   justify-content: center;
   align-items: center;
   height:100%;
-
+  grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
 
 }

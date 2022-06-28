@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Side API Code</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Font Awesome --> 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Font Awesome --> 
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
     <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
   <!--<link rel="stylesheet" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null"
     href="https://unpkg.com/normalize.css@8.0.0/normalize.css">
   <link rel="stylesheet" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null"
     href="https://unpkg.com/milligram@1.3.0/dist/milligram.min.css">-->
+  <title>Client Side API Code</title>
 </head>
 <body>
   <header class="navbar">
@@ -27,7 +31,7 @@
     </section>
   </header>
   <section class="top">
-    <section class="container grid">
+    <section class="container grid layout">
       <section class="top-text">
         <h1>Wine API</h1>
         <p>This is a simple API that allows you to search for wines by name, type, and features.It allows you to add new wines, and delete existing wines.</p>
@@ -69,8 +73,19 @@
         </section>
     </section>
   </section>
+  <section class="bottom">
+    <section class = 'ui-widget'>
+      <label for="name">
+          Name:
+      </label>
+      <input id="name">
+      <ul id="food"></ul>
+  </section>
   <section>
-    <div class="mainInfo-form card"> 
+      <img src="">
+  </section>
+  </section>
+    <!-- <div class="mainInfo-form card"> 
       <h2>Submit A New Wine</h2>
       <form>
         <div class="form-control">
@@ -80,103 +95,8 @@
       </form>
       <h2>Result: </h2>
       <p>Resut will tell you if it is a red or white wine</p>
-    </div>
-  </section>
-    <!--<main class="wrapper" style="padding-top:1.2em">
-
-        <section class="container" id="demo-content">
-          <h1 class="title">Scan 1D/2D Code from Video Camera</h1>
-    
-          <p>
-            <a class="button-small button-outline" href="../../index.html">HOME 🏡</a>
-          </p>
-    
-          <p>This example shows how to scan any supported 1D/2D code with ZXing javascript library from the device video
-            camera. If more
-            than one video input devices are available (for example front and back camera) the example shows how to read
-            them and use a select to change the input device.</p>
-    
-          <div>
-            <a class="button" id="startButton">Start</a>
-            <a class="button" id="resetButton">Reset</a>
-          </div>
-    
-          <div>
-            <video id="video" width="300" height="200" style="border: 1px solid gray"></video>
-          </div>
-    
-          <div id="sourceSelectPanel" style="display:none">
-            <label for="sourceSelect">Change video source:</label>
-            <select id="sourceSelect" style="max-width:400px">
-            </select>
-          </div>
-    
-          <label>Result:</label>
-          <pre><code id="result"></code></pre>
-    
-          <p>See the <a href="https://github.com/zxing-js/library/tree/master/docs/examples/multi-camera/">source code</a>
-            for this example.</p>
-        </section>
-    
-        <footer class="footer">
-          <section class="container">
-            <p>ZXing TypeScript Demo. Licensed under the <a target="_blank"
-                href="https://github.com/zxing-js/library#license" title="MIT">MIT</a>.</p>
-
-
+    </div> -->
+ <!-- //this feature will use a barcode scanner and event listener for database of wines//-->
     <script src='js/main.js'></script>
-    <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script>
-    <script type="text/javascript">
-      window.addEventListener('load', function () {
-        let selectedDeviceId;
-        const codeReader = new ZXing.BrowserMultiFormatReader()
-        console.log('ZXing code reader initialized')
-        codeReader.listVideoInputDevices()
-          .then((videoInputDevices) => {
-            const sourceSelect = document.getElementById('sourceSelect')
-            selectedDeviceId = videoInputDevices[0].deviceId
-            if (videoInputDevices.length >= 1) {
-              videoInputDevices.forEach((element) => {
-                const sourceOption = document.createElement('option')
-                sourceOption.text = element.label
-                sourceOption.value = element.deviceId
-                sourceSelect.appendChild(sourceOption)
-              })
-  
-              sourceSelect.onchange = () => {
-                selectedDeviceId = sourceSelect.value;
-              };
-  
-              const sourceSelectPanel = document.getElementById('sourceSelectPanel')
-              sourceSelectPanel.style.display = 'block'
-            }
-  
-            document.getElementById('startButton').addEventListener('click', () => {
-              codeReader.decodeFromVideoDevice(selectedDeviceId, 'video', (result, err) => {
-                if (result) {
-                  console.log(result)
-                  document.getElementById('result').textContent = result.text
-                }
-                if (err && !(err instanceof ZXing.NotFoundException)) {
-                  console.error(err)
-                  document.getElementById('result').textContent = err
-                }
-              })
-              console.log(`Started continous decode from camera with id ${selectedDeviceId}`)
-            })
-  
-            document.getElementById('resetButton').addEventListener('click', () => {
-              codeReader.reset()
-              document.getElementById('result').textContent = '';
-              console.log('Reset.')
-            })
-  
-          })
-          .catch((err) => {
-            console.error(err)
-          })
-      })
-    </script>-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>-->
   </body>
 </html>

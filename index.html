@@ -1,46 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-  	<meta charset="utf-8">
-  	<meta name="description" content="Your description goes here">
-  	<meta name="keywords" content="one, two, three">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<title>Wine Food API</title>
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/style.css">
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <link rel="stylesheet" href="/client-side-code/css/normalize.css">
+    <link rel="stylesheet" href="/client-side-code/css/style.css">
+    <title>Wine Food API</title>
+</head>
 	<body>
-		<header>
-            <nav>
-                <ul>
-                    <li>Logo and Design</li>
-                </ul>
-            </nav>
+        <header class="navbar">
+            <section class="container flex">
+            <!-- <h1 class="logo">Wine API June 2022</h1> -->
+                <nav class="nav-main">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="api.html">API</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </nav>
+            </section>
         </header>
-		<section>
-            <section class="dataBase">
+        <section class="top">
+            <section class="container grid">
+                <section class="top-text">
+                <h1>Wine API</h1>
+                <p>This is a simple API that allows you to search for wines by name, type, and features.It allows you to add new wines, and delete existing wines.</p>
+                </section>
+            </section>
+        </section>
+		<section class="mainInfo">
+            <section class="container grid">
+                <section class="mainInfo-text">
                 <h2>Please use https://wine-api-for-non-experts.herokuapp.com/api/wine-names</h2>
                 <h3>Food and Wine Guide for Beginners</h3>
                 <p>Type in one of the choices from below at the end of URL above. Change out the "wine-names" for one of the listed below.</p>
-                <ul class="dataList">
-                    <li>Champagne</li>
-                    <li>Zinfandel</li>
-                    <li>Pinot Noir</li>
-                    <li>Riesling</li>
-                    <li>Mascato</li>
-                    <li>Merlot</li>
-                    <li>Red Blend</li>
-                    <li>Red Box Wine</li>
-                    <li>White Box Wine</li>
-                    <li>Cabernet Sauvignon</li>
-                    <li>Cheap Horrible Choice</li>
-                </ul>
-            </section>  
+                <label for="wine-names">Choose a wine:</label>
+                <select name="wine-names" id="wine-names">
+                    <option value="riesling">Riesling</option>
+                    <option value="cabernet sauvignon">Cabernet sauvignon</option>
+                    <option value="red blend">Red Blend</option>
+                    <option value="champange">Champange</option>
+                    <option value="chardonnay">Chardonnay</option>
+                    <option value="pinot noit">Pinot Noir</option>
+                    <option value="merlot">Merlot</option>
+                    <option value="mascato">Mascato</option>
+                    <option value="zinfandel">Zinfandel</option>
+                    <option value="box wine">Box Wine</option>
+                    <option value="cheap wine">Cheap Wine</option>
+                    <option value="rebranded">Rebranded</option>
+                </select>
+                <section class="right side img">
+                    <section class="container flex">
+                        <img src="#" alt="wine bottle image">
+                    </section>
+                </section>
+            </section>
         </section>
-		<footer>
-            <img src="https://placekitten.com/g/30/58" alt="tiny cat image"
-        </footer>
-		<script type="text/javascript" src="/js/main.js"></script>
+        <section class="bottom">
+            <section class = 'ui-widget'>
+                <label for= "name">Name:</label>
+                <input id="name">
+                <ul id="food"> </ul>
+            </section>
+            <section>
+                <img src="">
+            </section>
+        </section>
+		<script src="server.js"></script>
 	</body>
 </html>
