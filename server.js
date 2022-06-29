@@ -1,4 +1,5 @@
 const express = require('express')
+const jquery = require('jquery')
 const app = express()
 const cors = require('cors')
 const {MongoClient, ObjectId } = require('mongodb')
