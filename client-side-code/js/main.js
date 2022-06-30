@@ -37,9 +37,9 @@ $(document).ready(function () {
                 .then(result => result.json())
                 .then(result => {
                     $('#food').empty()
-                    result.food.forEach(food =>
+                    result.food.forEach(foodItem =>
                         {
-                            $("#food").append(`<li>${food}</li>`)
+                            $("#food").append(`<li>${foodItem}</li>`)
                         })
                         $('img').attr('src',result.image)
                 })
