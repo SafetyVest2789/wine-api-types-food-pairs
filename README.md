@@ -4,7 +4,7 @@ How It's Made:
 
 Tech used: HTML,CSS,JavaScript,Framework of choice
 
-So many things are running on abandoned and undermined coding. Sometimes you have to make something that you can use that helps your team out. This is where creating API's, databases, and other fun to use components comes in. I created some tools from open-source software and made some databases for helping update my own work. One of my projects needed a current database but I had no access to my jobs software. So I created my own tools to help create and stream line databases and quick onboarding for new co-workers.
+So many things are running on abandoned and outdated code. Sometimes you have to make something that you can use that helps your team out. This is where creating API's, databases, and other fun to use components comes in. I created some tools from open-source software and made some databases for helping update my own work. One of my projects needed a current database but I had no access to my jobs software. So I created my own tools to help create and stream line databases and quick onboarding for new co-workers.
 
 Following the MERN full-stack usage(MongoDb, Express.js, Node.js, and React.js) of frameworks, tools, and libraries helped craft some tools at work. Dealing with certain challenges and my own innovation, I created a scanner for databases I created. This pulled me into learning how to run a server and maintaining an up to date database that changes every season.
 
@@ -19,3 +19,7 @@ I planned to start looking at speeding up my load time for my pages. The next fe
 Lessons Learned 
 
 No matter what this all ends up as, I am eager and curious on learning how to build and use tools for my own work. It is lovely and awesome to see the communities that create and maintain tools for open source software. Every time I've learned one new concept and used it, another comes along and helps me get better at making it more functional. That is what makes this feel great. Having a functioning, simple, and working app is my goal. I had senior engineers, UI-UX designers, and sales team leads help me understand how to look at my app from a larger scope. Making things in object orientated programming, testing and updates, and reviewing UI interaction were the extra steps I didn't initially have as a programmer. Over the years I've found the model of scaling up projects to be more stable the more time I spend on pre-planning.
+
+There are many more milestones to take on. 
+So far the recent one (JUNE2022), has been JQuery for an autocomplete function. 
+This tool was introduced by a great developer in my community (Mayanwolfe) and was shown to be helpful in making an autocomplete function part of the user interface/input.
