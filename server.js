@@ -1,5 +1,4 @@
 const express = require('express')
-const jquery = require('jquery')
 const app = express()
 const cors = require('cors')
 const {MongoClient, ObjectId } = require('mongodb')
@@ -15,29 +14,16 @@ let db,
     collection
 
 MongoClient.connect(dbConnectionStr)
-    .then(client =>{
-        console.log(`Connected to ${dbName} Database`)
+    .then(client => {
+        console.log(`Connected to database`)
         db = client.db(dbName)
         collection = db.collection('basic')
     })
 
-//MIDDLEWARE SETUP FOR APP//
-app.set('view engine','ejs')
-app.use(express.static('public'))
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended : true}))
 app.use(express.json())
 app.use(cors())
-//THIS IS CRUD APP METHODS//
-// app.get('/', (request,response) =>{
-//     db.collection('basic').find().toArray()
-//         .then(data => {
-//             let wineList = data.map(item => item.name)
-//             console.log(wineList)
-//             response.render('index.ejs', { info: wineList })
-//         })
-//         .catch(error => console.error(error))
-// })
-//THis is experimental //
+
 app.get("/search", async (request,response) => {
     try {
         let result = await collection.aggregate([
@@ -77,22 +63,3 @@ app.get("/get/:id", async (request, response) => {
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Server is running.Please get em`)
 })
-//THis is experimental test//
-
-// app.get('/', (request, response)=> {
-//     response.sendFile(__dirname + '/index.html')
-// })
-
-// app.get('/api/:name', (request,response)=> {
-//     const winesName = request.params.name.toLowerCase()
-//     if(wines[winesName]) {
-//         response.json(wines[winesName])
-//     } else {
-//         response.json(wines['cheap horrible choice'])
-//     }
-
-// })
-
-// app.listen(process.env.PORT || PORT, () => {
-//     console.log(`The server is running on port ${PORT}! You betta go catch it!`)
-// })
