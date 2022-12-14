@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-//const {MongoClient, ObjectId } = require('mongodb')
 const { response } = require('express')
 const { request } = require('http')
 require('dotenv').config()
@@ -34,6 +33,7 @@ app.use(cors())
 //         //console.log(error)
 //     }
 // })
+
 //This is refactored to pass a variable of any name for id.
 
 app.get("/hello/:id", async (request, response) => {
@@ -46,11 +46,19 @@ app.get("/hello/:id", async (request, response) => {
     } catch (error) {
         response.status(500).send({message: error.message})
     }
-}
-)
+})
 
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Server is running.Please get em`)
 })
 
-
+//Usig this as example to direct to kitchen.js
+// fetch(url, options)
+//     .then((res) => {
+//       console.log(res);
+//       if (res.status !== 200) throw res.json();
+//       return res.json();
+//     })
+//     .then((data) => console.log(data))
+//     .catch((err) => console.log(err));
+// };
