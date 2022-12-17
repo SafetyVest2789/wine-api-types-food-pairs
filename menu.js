@@ -5,10 +5,72 @@ const { response } = require('express')
 const { request } = require('http')
 require('dotenv').config()
 const PORT = 8000
+const http = require('http');
+// const https = require('https');
 
 app.use(express.urlencoded({extended : true}))
 app.use(express.json())
 app.use(cors())
+
+
+/**
+ * getJSON:  RESTful GET request returning JSON object(s)
+ * @param options: http options object
+ * @param callback: callback to pass the results JSON object(s) back
+ */
+
+const options = {
+    host: 'localhost',
+    port: 3000,
+    path: '/wines',
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  
+
+async function getWine (options) {
+  const port = options.port == 3000 ? http : http;
+  console.log ('options = ', options)
+  let output = '';
+
+  const req = port.request(options, (res) => {
+    res.setEncoding('utf8');
+
+    res.on('data', (chunk) => {
+      output += chunk;
+    });
+
+    res.on('end', () => {
+      let obj = JSON.parse(output);
+      console.log('obj = ', obj)
+      return (res.statusCode, obj);
+    });
+  });
+
+  req.on('error', (err) => {
+    console.log('err.message = ', err.message)
+    // res.send('error: ' + err.message);
+  });
+
+  req.end();
+};
+
+// function getWine (options, result) {
+//     console.log('now in get wine')
+//     console.log(`onResult: (${statusCode})\n\n${JSON.stringify(result)}`);
+    
+//     //   res.statusCode = statusCode;
+    
+// res.send(result);
+// };
+
+
+let result = ''; 
+result = await getWine (options);
+console.log('result = ', result) 
+
 
 // app.get("/search", async (request,response) => {
 //     try {

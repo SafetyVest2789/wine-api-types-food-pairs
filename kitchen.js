@@ -8,7 +8,6 @@ const wineDescript = require('./winedescript')
 require('dotenv').config()
 const PORT = 3000
 
-
 app.use(express.urlencoded({extended : true}))
 app.use(express.json())
 app.use(cors())
@@ -16,6 +15,7 @@ app.use(cors())
 
 app.get("/wines", async (request, response) => {
     try {
+        console.log('get/wine')
         let result = wineDescript.wines
         response.send(result)
     } catch (error) {
