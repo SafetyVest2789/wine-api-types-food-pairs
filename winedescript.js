@@ -7,146 +7,188 @@ const app = express();
 // app.use(cache('5 minutes'));
 //wines data in a database
 const wines = [
-    { wineType: "merlot", priceDollar: 45, foodPair: "steak", occasion: "dinner" },
-    { wineType: "riesling", priceDollar: 25, foodPair: "chicken", occasion: "dinner" },
-    { wineType: "pinot noir", priceDollar: 15, foodPair: "meat", occasion: "dinner" },
-    { wineType: "champagne", priceDollar: 100, foodPair: "fancycheese", occasion:["dinner","event"], inventory: 30 },
-    { wineType: "cabernet", priceDollar: 50, foodPair: "steak", occasion: "dinner" },
-    { wineType: "pinot grigio", priceDollar: 20, foodPair: "fancycheese", occasion: ["dinner", "event"] },
-    { wineType: "port", priceDollar: 20, foodPair: "dessert", occasion: "dinner" },
-    { wineType: "redblend", priceDollar: 15, foodPair: "anything", occasion: "any occasion" },
-    { wineType: "boxwine", priceDollar: 15, foodPair: "anything", occasion: "event" },
-    { wineType: "chardonnay", priceDollar: 15, foodPair: "seafood", occasion: ["dinner", "event", "any occasion"] },
-    { wineType: "zinfandel", priceDollar: 25, foodPair: "smokey and salty", occasion: "dinner" },
+    { wineType: "merlot", priceDollar: 45, foodPair: "steak", occasion: "fancy dinner", inventory: 30 },
+    { wineType: "riesling", priceDollar: 25, foodPair: "chicken", occasion: "dinner", inventory: 37 },
+    { wineType: "pinot noir", priceDollar: 15, foodPair: "meat", occasion: "dinner", inventory: 25 },
+    { wineType: "champagne", priceDollar: 100, foodPair: "fancycheese", occasion:["dinner","event"], inventory: 14 },
+    { wineType: "cabernet", priceDollar: 50, foodPair: "steak", occasion: "dinner", inventory: 80 },
+    { wineType: "pinot grigio", priceDollar: 20, foodPair: "fancycheese", occasion: ["dinner", "event"], inventory: 46 },
+    { wineType: "port", priceDollar: 20, foodPair: "dessert", occasion: "dinner", inventory: 10 },
+    { wineType: "redblend", priceDollar: 15, foodPair: "anything", occasion: "any occasion", inventory: 46 },
+    { wineType: "boxwine", priceDollar: 15, foodPair: "anything", occasion: "event", inventory: 20 },
+    { wineType: "chardonnay", priceDollar: 15, foodPair: "seafood", occasion: ["dinner", "event", "any occasion"], inventory: 44 },
+    { wineType: "zinfandel", priceDollar: 25, foodPair: "smokey and salty", occasion: "dinner", inventory: 30 },
 
 ]
 
 const foods = [
-    { wineType: "merlot", priceDollar: 45, foodPair: "steak" },
-    { wineType: "riesling", priceDollar: 25, foodPair: "chicken" },
-    { wineType: "pinot noir", priceDollar: 15, foodPair: "meat" },
-    { wineType: "champagne", priceDollar: 100, foodPair: "fancycheese" },
-    { wineType: "cabernet", priceDollar: 50, foodPair: "steak", occasion: "dinner" },
-    { wineType: "pinot grigio", priceDollar: 20, foodPair: "fancycheese", occasion: ["dinner", "event"] },
-    { wineType: "port", priceDollar: 20, foodPair: "dessert", occasion: "dinner" },
-    { wineType: "redblend", priceDollar: 15, foodPair: "anything", occasion: "any occasion" },
-    { wineType: "boxwine", priceDollar: 15, foodPair: "anything", occasion: "event" },
-    { wineType: "chardonnay", priceDollar: 15, foodPair: "seafood", occasion: ["dinner", "event", "any occasion"] },
-    { wineType: "zinfandel", priceDollar: 25, foodPair: "smokey and salty", occasion: "dinner" },
+    { wineType: "merlot", priceDollar: 45, foodPair: "steak", occasion: "fancy dinner", inventory: 30 },
+    { wineType: "riesling", priceDollar: 25, foodPair: "chicken", occasion: "dinner", inventory: 37 },
+    { wineType: "pinot noir", priceDollar: 15, foodPair: "meat", occasion: "dinner", inventory: 25 },
+    { wineType: "champagne", priceDollar: 100, foodPair: "fancycheese", occasion:["dinner","event"], inventory: 14 },
+    { wineType: "cabernet", priceDollar: 50, foodPair: "steak", occasion: "dinner", inventory: 80 },
+    { wineType: "pinot grigio", priceDollar: 20, foodPair: "fancycheese", occasion: ["dinner", "event"], inventory: 46 },
+    { wineType: "port", priceDollar: 20, foodPair: "dessert", occasion: "dinner", inventory: 10 },
+    { wineType: "redblend", priceDollar: 15, foodPair: "anything", occasion: "any occasion", inventory: 46 },
+    { wineType: "boxwine", priceDollar: 15, foodPair: "anything", occasion: "event", inventory: 20 },
+    { wineType: "chardonnay", priceDollar: 15, foodPair: "seafood", occasion: ["dinner", "event", "any occasion"], inventory: 44 },
+    { wineType: "zinfandel", priceDollar: 25, foodPair: "smokey and salty", occasion: "dinner", inventory: 30 },
 ]
 
 const prices = [
-    { wineType: "merlot", priceDollar: 45, foodPair: "steak" },
-    { wineType: "riesling", priceDollar: 25, foodPair: "chicken" },
-    { wineType: "pinot noir", priceDollar: 15, foodPair: "meat" },
-    { wineType: "champagne", priceDollar: 100, foodPair: "fancycheese" },
-    { wineType: "cabernet", priceDollar: 50, foodPair: "steak", occasion: "dinner" },
-    { wineType: "pinot grigio", priceDollar: 20, foodPair: "fancycheese", occasion: ["dinner", "event"] },
-    { wineType: "port", priceDollar: 20, foodPair: "dessert", occasion: "dinner" },
-    { wineType: "redblend", priceDollar: 15, foodPair: "anything", occasion: "any occasion" },
-    { wineType: "boxwine", priceDollar: 15, foodPair: "anything", occasion: "event" },
-    { wineType: "chardonnay", priceDollar: 15, foodPair: "seafood", occasion: ["dinner", "event", "any occasion"] },
-    { wineType: "zinfandel", priceDollar: 25, foodPair: "smokey and salty", occasion: "dinner" },
+    { wineType: "merlot", priceDollar: 45, foodPair: "steak", occasion: "fancy dinner", inventory: 30 },
+    { wineType: "riesling", priceDollar: 25, foodPair: "chicken", occasion: "dinner", inventory: 37 },
+    { wineType: "pinot noir", priceDollar: 15, foodPair: "meat", occasion: "dinner", inventory: 25 },
+    { wineType: "champagne", priceDollar: 100, foodPair: "fancycheese", occasion:["dinner","event"], inventory: 14 },
+    { wineType: "cabernet", priceDollar: 50, foodPair: "steak", occasion: "dinner", inventory: 80 },
+    { wineType: "pinot grigio", priceDollar: 20, foodPair: "fancycheese", occasion: ["dinner", "event"], inventory: 46 },
+    { wineType: "port", priceDollar: 20, foodPair: "dessert", occasion: "dinner", inventory: 10 },
+    { wineType: "redblend", priceDollar: 15, foodPair: "anything", occasion: "any occasion", inventory: 46 },
+    { wineType: "boxwine", priceDollar: 15, foodPair: "anything", occasion: "event", inventory: 20 },
+    { wineType: "chardonnay", priceDollar: 15, foodPair: "seafood", occasion: ["dinner", "event", "any occasion"], inventory: 44 },
+    { wineType: "zinfandel", priceDollar: 25, foodPair: "smokey and salty", occasion: "dinner", inventory: 30 },
 ]
 
 const occasion = [
-    { wineType: "merlot", priceDollar: 45, foodPair: "steak" },
-    { wineType: "riesling", priceDollar: 25, foodPair: "chicken" },
-    { wineType: "pinot noir", priceDollar: 15, foodPair: "meat" },
-    { wineType: "champagne", priceDollar: 100, foodPair: "fancycheese" },
-    { wineType: "cabernet", priceDollar: 50, foodPair: "steak", occasion: "dinner" },
-    { wineType: "pinot grigio", priceDollar: 20, foodPair: "fancycheese", occasion: ["dinner", "event"] },
-    { wineType: "port", priceDollar: 20, foodPair: "dessert", occasion: "dinner" },
-    { wineType: "redblend", priceDollar: 15, foodPair: "anything", occasion: "any occasion" },
-    { wineType: "boxwine", priceDollar: 15, foodPair: "anything", occasion: "event" },
-    { wineType: "chardonnay", priceDollar: 15, foodPair: "seafood", occasion: ["dinner", "event", "any occasion"] },
-    { wineType: "zinfandel", priceDollar: 25, foodPair: "smokey and salty", occasion: "dinner" },
+    { wineType: "merlot", priceDollar: 45, foodPair: "steak", occasion: "fancy dinner", inventory: 30 },
+    { wineType: "riesling", priceDollar: 25, foodPair: "chicken", occasion: "dinner", inventory: 37 },
+    { wineType: "pinot noir", priceDollar: 15, foodPair: "meat", occasion: "dinner", inventory: 25 },
+    { wineType: "champagne", priceDollar: 100, foodPair: "fancycheese", occasion:["dinner","event"], inventory: 14 },
+    { wineType: "cabernet", priceDollar: 50, foodPair: "steak", occasion: "dinner", inventory: 80 },
+    { wineType: "pinot grigio", priceDollar: 20, foodPair: "fancycheese", occasion: ["dinner", "event"], inventory: 46 },
+    { wineType: "port", priceDollar: 20, foodPair: "dessert", occasion: "dinner", inventory: 10 },
+    { wineType: "redblend", priceDollar: 15, foodPair: "anything", occasion: "any occasion", inventory: 46 },
+    { wineType: "boxwine", priceDollar: 15, foodPair: "anything", occasion: "event", inventory: 20 },
+    { wineType: "chardonnay", priceDollar: 15, foodPair: "seafood", occasion: ["dinner", "event", "any occasion"], inventory: 44 },
+    { wineType: "zinfandel", priceDollar: 25, foodPair: "smokey and salty", occasion: "dinner", inventory: 30 },
 ]
 
 app.use(bodyParser.json());
 
 app.get('/wines', (req, res) => {
-    const { wineType, priceDollar, foodPair, occasion } = req.query;
+    const { wineType, priceDollar, foodPair, occasion, inventory } = req.query;
     let results = [...wines];
     if (wineType) {
         results = results.filter(r => r.wineType === wineType);
     }
 
     if (priceDollar) {
-        results = results.filter(r => r.priceDollar === priceDollar)
+        results = results.filter(r => +r.priceDollar === +priceDollar)
     }
 
     if (foodPair) {
-        results = results.filter(r => +r.foodPair === +foodPair)
+        results = results.filter(r => r.foodPair === foodPair)
     }
 
     if (occasion) {
         results = results.filter(r => r.occasion === occasion)
     }
+
+    if (inventory) {
+        results = results.filter(r => r.inventory === inventory)
+    }
     res.json(results);
 });
 
 app.get('/foods', (req, res) => {
-    const { wineType, priceDollar, foodPair, occasion} = req.query;
+    const { wineType, priceDollar, foodPair, occasion, inventory } = req.query;
     let results = [...foods];
     if (wineType) {
         results = results.filter(r => r.wineType === wineType);
     }
 
     if (priceDollar) {
-        results = results.filter(r => r.priceDollar === priceDollar)
+        results = results.filter(r => +r.priceDollar === +priceDollar)
     }
 
     if (foodPair) {
-        results = results.filter(r => +r.foodPair === +foodPair)
+        results = results.filter(r => r.foodPair === foodPair)
     }
+
     if (occasion) {
         results = results.filter(r => r.occasion === occasion)
+    }
+
+    if (inventory) {
+        results = results.filter(r => r.inventory === inventory)
     }
     res.json(results);
 });
 
 app.get('/prices', (req, res) => {
-    const { wineType, priceDollar, foodPair, occasion} = req.query;
+    const { wineType, priceDollar, foodPair, occasion, inventory } = req.query;
     let results = [...prices];
     if (wineType) {
         results = results.filter(r => r.wineType === wineType);
     }
 
     if (priceDollar) {
-        results = results.filter(r => r.priceDollar === priceDollar)
+        results = results.filter(r => +r.priceDollar === +priceDollar)
     }
 
     if (foodPair) {
-        results = results.filter(r => +r.foodPair === +foodPair)
+        results = results.filter(r => r.foodPair === foodPair)
     }
+
     if (occasion) {
         results = results.filter(r => r.occasion === occasion)
+    }
+
+    if (inventory) {
+        results = results.filter(r => r.inventory === inventory)
     }
     res.json(results);
 });
 
 app.get('/occasion', (req, res) => {
-    const { wineType, priceDollar, foodPair, occasion } = req.query;
+    const { wineType, priceDollar, foodPair, occasion, inventory  } = req.query;
     let results = [...occasion];
     if (wineType) {
         results = results.filter(r => r.wineType === wineType);
     }
 
     if (priceDollar) {
-        results = results.filter(r => r.priceDollar === priceDollar)
+        results = results.filter(r => +r.priceDollar === +priceDollar)
     }
 
     if (foodPair) {
-        results = results.filter(r => +r.foodPair === +foodPair)
+        results = results.filter(r => r.foodPair === foodPair)
     }
 
     if (occasion) {
         results = results.filter(r => r.occasion === occasion)
     }
+
+    if (inventory) {
+        results = results.filter(r => r.inventory === inventory)
+    }
     res.json(results);
 });
 
+app.get('/inventory', (req, res) => {
+    const { wineType, priceDollar, foodPair, occasion, inventory } = req.query;
+    let results = [...inventory];
+    if (wineType) {
+        results = results.filter(r => r.wineType === wineType);
+    }
+
+    if (priceDollar) {
+        results = results.filter(r => +r.priceDollar === +priceDollar)
+    }
+
+    if (foodPair) {
+        results = results.filter(r => r.foodPair === foodPair)
+    }
+
+    if (occasion) {
+        results = results.filter(r => r.occasion === occasion)
+    }
+
+    if (inventory) {
+        results = results.filter(r => r.inventory === inventory)
+    }
+    res.json(results);
+});
 //app.listen(4000, () => console.log('Sever go BrRRRrrRrr'));
 
 module.exports = {

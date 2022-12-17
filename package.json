@@ -12,8 +12,7 @@
     "express": "^4.18.1",
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
-    "nodemon": "^2.0.18",
-    "restify": "^10.0.0"
+    "nodemon": "^2.0.18"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
