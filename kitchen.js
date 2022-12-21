@@ -15,9 +15,9 @@ app.use(cors())
 
 app.get("/wines", async (request, response) => {
     try {
-        console.log('get/wine')
+        console.log('get/wines')
         let result = wineDescript.wines
-        response.send(result)
+        await response.send(result)
     } catch (error) {
         response.status(500).send({message: error.message})
     }
