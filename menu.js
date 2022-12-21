@@ -19,84 +19,99 @@ app.use(cors())
  * @param callback: callback to pass the results JSON object(s) back
  */
 
-const options = {
-    host: 'localhost',
-    port: 3000,
-    path: '/wines',
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  };
+// const options = {
+//     host: 'localhost',
+//     port: 3000,
+//     path: '/wines',
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     }
+//   };
   
 
-async function getWine (options) {
-  const port = options.port == 3000 ? http : http;
-  console.log ('options = ', options)
-  let output = '';
+// async function getWine (options) {
+//   const port = options.port == 3000 ? http : http;
+//   console.log ('options = ', options)
+//   let output = '';
 
-  const req = port.request(options, (res) => {
-    res.setEncoding('utf8');
+//   const req = await port.request(options, (res) => {
+//     res.setEncoding('utf8');
+//     console.log('tracer1')
 
-    res.on('data', (chunk) => {
-      output += chunk;
-    });
+//     res.on('data', (chunk) => {
+//       output += chunk;
+//     });
+//     console.log('tracer2')
 
-    res.on('end', () => {
-      let obj = JSON.parse(output);
-      console.log('obj = ', obj)
-      return (res.statusCode, obj);
-    });
-  });
+//     res.on('end', () => {
+//       let obj = JSON.parse(output);
+//       console.log('obj = ', obj)
+//       output = obj;
+//       return (res.statusCode, obj);
+//     });
+//   });
+//   console.log('tracer3')
 
-  req.on('error', (err) => {
-    console.log('err.message = ', err.message)
-    // res.send('error: ' + err.message);
-  });
+//   //error handling//
+//   req.on('error', (err) => {
+//     console.log('err.message = ', err.message)
+//     // res.send('error: ' + err.message);
+//   });
+//   console.log('tracer4')
 
-  req.end();
-};
-
-// function getWine (options, result) {
-//     console.log('now in get wine')
-//     console.log(`onResult: (${statusCode})\n\n${JSON.stringify(result)}`);
-    
-//     //   res.statusCode = statusCode;
-    
-// res.send(result);
+//   req.end();
 // };
 
 
-let result = ''; 
-result = await getWine (options);
-console.log('result = ', result) 
+// let promise = new Promise(function(resolve, reject) {
+//   setTimeout(() => resolve("done!"), 1000);
+// });
+
+// // resolve runs the first function in .then
+// promise.then(
+//   result => alert(result), // shows "done!" after 1 second
+//   error => alert(error) // doesn't run
+// );
 
 
-// app.get("/search", async (request,response) => {
-//     try {
-//         let result = await collection.aggregate([
-//             {
-//                 "$search" : {
-//                     "autocomplete" : {
-//                         "query": `${request.query.query}`,
-//                         "path": "name",
-//                         "fuzzy": {
-//                             "maxEdits":2,
-//                             "prefixLength": 3
-//                         }
-//                     }
-//                 }
-//             }
-//         ]).toArray()
-//         //console.log(result)
-//         response.send(result)
-//     } catch (error) {
-//         response.status(500).send({message: error.message})
-//         //console.log(error)
-//     }
-// })
+// async function getWines () {
+  // console.log('in getWines')
+  getWine = async () => {
+    console.log('GettIN wine')
+    const location = 'localhost';
+    const settings = {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        }
+    };
+    try {
+        const fetchResponse = await fetch(`http://${location}:3000/wines/`, settings);
+        const data = await fetchResponse.json();
+        return data;
+    } catch (err) {
+        return err;
+    }    
+}
 
-//This is refactored to pass a variable of any name for id.
+
+getWine().then(function(result){
+  console.log('result = ', result)
+});
+// console.log('result = ', result)
+
+// async function tester (options) {
+//   console.log('tester testing') 
+//   result = await getWine(options)
+//   console.log('resultUno = ', result) 
+// }
+
+
+// result = tester(options).then(function(result){
+//   console.log('resultDeuce = ', result) 
+// });
 
 app.get("/hello/:id", async (request, response) => {
     try {
